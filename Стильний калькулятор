@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор вартості</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .format-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        label {
+            margin-right: 10px;
+            color: #555;
+        }
+        input[type="number"] {
+            width: 60px;
+            text-align: center;
+            margin-right: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .total {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Калькулятор вартості</h2>
+    <div class="format-row">
+        <label for="format1">Формат 10x15 - Ціна:</label>
+        <input type="number" id="format1Price" value="16" readonly>
+        <input type="number" id="format1Quantity" value="0" min="0">
+        <span>шт.</span>
+    </div>
+    <div class="format-row">
+        <label for="format2">Формат 15x21 - Ціна:</label>
+        <input type="number" id="format2Price" value="40" readonly>
+        <input type="number" id="format2Quantity" value="0" min="0">
+        <span>шт.</span>
+    </div>
+    <div class="format-row">
+        <label for="format3">Формат 21x30 - Ціна:</label>
+        <input type="number" id="format3Price" value="80" readonly>
+        <input type="number" id="format3Quantity" value="0" min="0">
+        <span>шт.</span>
+    </div>
+    <div class="format-row">
+        <label for="format4">Формат 30x45 - Ціна:</label>
+        <input type="number" id="format4Price" value="140" readonly>
+        <input type="number" id="format4Quantity" value="0" min="0">
+        <span>шт.</span>
+    </div>
+    <div class="format-row">
+        <label for="format5">Фото без друку - Ціна:</label>
+        <input type="number" id="format5Price" value="7" readonly>
+        <input type="number" id="format5Quantity" value="0" min="0">
+        <span>шт.</span>
+    </div>
+    <button onclick="calculateTotal()">Розрахувати</button>
+    <div class="total" id="total">Загальна сума: 0 грн.</div>
+
+    <script>
+        function calculateTotal() {
+            var format1Quantity = parseInt(document.getElementById('format1Quantity').value);
+            var format2Quantity = parseInt(document.getElementById('format2Quantity').value);
+            var format3Quantity = parseInt(document.getElementById('format3Quantity').value);
+            var format4Quantity = parseInt(document.getElementById('format4Quantity').value);
+            var format5Quantity = parseInt(document.getElementById('format5Quantity').value);
+
+            if (isNaN(format1Quantity) || isNaN(format2Quantity) || isNaN(format3Quantity) || isNaN(format4Quantity) || isNaN(format5Quantity)) {
+                alert("Будь ласка, введіть число в поле кількості.");
+                return;
+            }
+
+            var format1Price = parseInt(document.getElementById('format1Price').value);
+            var format2Price = parseInt(document.getElementById('format2Price').value);
+            var format3Price = parseInt(document.getElementById('format3Price').value);
+            var format4Price = parseInt(document.getElementById('format4Price').value);
+            var format5Price = parseInt(document.getElementById('format5Price').value);
+
+            var total = (format1Price * format1Quantity) + (format2Price * format2Quantity) + (format3Price * format3Quantity) + (format4Price * format4Quantity) + (format5Price * format5Quantity);
+
+            document.getElementById('total').innerHTML = 'Загальна сума: ' + total + ' грн.';
+        }
+    </script>
+</body>
+</html>
