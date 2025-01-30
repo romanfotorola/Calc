@@ -82,14 +82,14 @@
     </div>
      <div class="format-row">
         <label for="format4">Магніт 7,5х10 см- Ціна:</label>
-        <input type="number" id="format4Price" value="35" readonly>
-        <input type="number" id="format4Quantity" value="0" min="0">
+        <input type="number" id="format5Price" value="35" readonly>
+        <input type="number" id="format5Quantity" value="0" min="0">
         <span>шт.</span>
     </div>
     <div class="format-row">
         <label for="format5">Фото без друку - Ціна:</label>
-        <input type="number" id="format5Price" value="8" readonly>
-        <input type="number" id="format5Quantity" value="0" min="0">
+        <input type="number" id="format6Price" value="8" readonly>
+        <input type="number" id="format6Quantity" value="0" min="0">
         <span>шт.</span>
     </div>
     <button onclick="calculateTotal()">Розрахувати</button>
@@ -106,7 +106,7 @@
             var format3Quantity = parseInt(document.getElementById('format3Quantity').value);
             var format4Quantity = parseInt(document.getElementById('format4Quantity').value);
             var format5Quantity = parseInt(document.getElementById('format5Quantity').value);
-            var format6Quantity = parseInt(document.getElementById('format5Quantity').value);
+            var format6Quantity = parseInt(document.getElementById('format6Quantity').value);
 
 
             if (isNaN(format1Quantity) || isNaN(format2Quantity) || isNaN(format3Quantity) || isNaN(format4Quantity) || isNaN(format5Quantity)|| isNaN(format6Quantity)) {
@@ -119,7 +119,7 @@
             var format3Price = parseInt(document.getElementById('format3Price').value);
             var format4Price = parseInt(document.getElementById('format4Price').value);
             var format5Price = parseInt(document.getElementById('format5Price').value);
-            var format6Price = parseInt(document.getElementById('format5Price').value);
+            var format6Price = parseInt(document.getElementById('format6Price').value);
 
 
             var total = (format1Price * format1Quantity) + (format2Price * format2Quantity) + (format3Price * format3Quantity) + (format4Price * format4Quantity) + (format5Price * format5Quantity) + (format6Price * format6Quantity);
